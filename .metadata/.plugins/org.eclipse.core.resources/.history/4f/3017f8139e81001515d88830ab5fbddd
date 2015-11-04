@@ -1,0 +1,6 @@
+package service;
+
+@WebService
+public interface GreetService {
+	String sayHi(@WebParam(name="username") String name)
+}

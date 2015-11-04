@@ -1,0 +1,3 @@
+INDEX VERSION 1.126
+C:\Users\vakamat\Documents\personal\apache_cxf_ws\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3575271415.index
+\Java_WS_Spring\src\main\resources

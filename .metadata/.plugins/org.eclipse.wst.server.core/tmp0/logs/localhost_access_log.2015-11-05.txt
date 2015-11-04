@@ -1,0 +1,9 @@
+127.0.0.1 - - [05/Nov/2015:00:12:33 +0530] "GET / HTTP/1.1" 404 951
+0:0:0:0:0:0:0:1 - - [05/Nov/2015:00:12:51 +0530] "GET /Java_WS_Spring/greetservice?WSDL HTTP/1.1" 404 1005
+0:0:0:0:0:0:0:1 - - [05/Nov/2015:00:12:51 +0530] "GET /favicon.ico HTTP/1.1" 404 973
+0:0:0:0:0:0:0:1 - - [05/Nov/2015:00:13:05 +0530] "GET /Java_WS_Spring/greetservice?WSDL HTTP/1.1" 404 1005
+0:0:0:0:0:0:0:1 - - [05/Nov/2015:00:14:29 +0530] "GET /Java_WS_Spring/greetservice?WSDL HTTP/1.1" 404 1005
+0:0:0:0:0:0:0:1 - - [05/Nov/2015:00:14:40 +0530] "GET /Java_WS_Spring/service/greetservice?WSDL HTTP/1.1" 404 1021
+0:0:0:0:0:0:0:1 - - [05/Nov/2015:00:14:48 +0530] "GET /Java_WS_Spring/services/ HTTP/1.1" 200 1060
+0:0:0:0:0:0:0:1 - - [05/Nov/2015:00:14:48 +0530] "GET /Java_WS_Spring/services//?stylesheet=1 HTTP/1.1" 200 367
+0:0:0:0:0:0:0:1 - - [05/Nov/2015:00:14:51 +0530] "GET /Java_WS_Spring/services/greetservice?wsdl HTTP/1.1" 200 2231
