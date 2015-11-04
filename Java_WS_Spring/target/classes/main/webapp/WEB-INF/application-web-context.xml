@@ -7,7 +7,7 @@
 	<import resource="classpath:META-INF/cxf/cxf.xml" />
 	<import resource="classpath:META-INF/cxf/cxf-servlet.xml" />
 
-	<jaxws:endpoint id="greetService" implementor="service.GreetServiceImpl"
-		address="/greetservice" />
-
+	<jaxws:endpoint id="greetService" implementor="service.GreetServiceImpl" serviceName="GreetService"
+		address="/greetservice" publish="false"/>
+	<jaxws:client id="tempConvClient" serviceClass="client.TempConvertSoap" address="http://www.w3schools.com/xml/tempconvert.asmx"></jaxws:client>
 </beans>

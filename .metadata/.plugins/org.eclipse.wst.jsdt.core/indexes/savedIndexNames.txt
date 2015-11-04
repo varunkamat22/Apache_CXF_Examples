@@ -1,6 +1,2 @@
-INDEX VERSION 1.122+C:\Users\vakamat\Documents\personal\github\Apache_CXF_Samples\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
-7132085.index
-3742921036.index
-2403967020.index
+INDEX VERSION 1.122+C:\Users\vakamat\Documents\personal\github\Apache_CXF_Examples\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
 2335252881.index
-1226804287.index

@@ -7,3 +7,14 @@
 0:0:0:0:0:0:0:1 - - [05/Nov/2015:00:14:48 +0530] "GET /Java_WS_Spring/services/ HTTP/1.1" 200 1060
 0:0:0:0:0:0:0:1 - - [05/Nov/2015:00:14:48 +0530] "GET /Java_WS_Spring/services//?stylesheet=1 HTTP/1.1" 200 367
 0:0:0:0:0:0:0:1 - - [05/Nov/2015:00:14:51 +0530] "GET /Java_WS_Spring/services/greetservice?wsdl HTTP/1.1" 200 2231
+127.0.0.1 - - [05/Nov/2015:00:30:16 +0530] "GET / HTTP/1.1" 404 951
+0:0:0:0:0:0:0:1 - - [05/Nov/2015:00:30:23 +0530] "GET /Java_WS_Spring/services/greetservice?wsdl HTTP/1.1" 404 1023
+127.0.0.1 - - [05/Nov/2015:00:31:58 +0530] "GET / HTTP/1.1" 404 951
+0:0:0:0:0:0:0:1 - - [05/Nov/2015:00:32:04 +0530] "GET /Java_WS_Spring/services/greetservice?wsdl HTTP/1.1" 200 1306
+0:0:0:0:0:0:0:1 - - [05/Nov/2015:00:33:29 +0530] "GET /Java_WS_Spring/services/greetservice?wsdl=GreetService.wsdl HTTP/1.1" 200 1414
+127.0.0.1 - - [05/Nov/2015:00:34:12 +0530] "GET /Java_WS_Spring/services/greetservice?wsdl HTTP/1.1" 200 1306
+127.0.0.1 - - [05/Nov/2015:00:34:12 +0530] "GET /Java_WS_Spring/services/greetservice?wsdl=GreetService.wsdl HTTP/1.1" 200 1414
+127.0.0.1 - - [05/Nov/2015:00:34:26 +0530] "POST /Java_WS_Spring/services/greetservice HTTP/1.1" 200 207
+127.0.0.1 - - [05/Nov/2015:00:51:18 +0530] "GET / HTTP/1.1" 404 951
+127.0.0.1 - - [05/Nov/2015:00:53:46 +0530] "GET / HTTP/1.1" 404 951
+127.0.0.1 - - [05/Nov/2015:00:58:38 +0530] "GET / HTTP/1.1" 404 951
