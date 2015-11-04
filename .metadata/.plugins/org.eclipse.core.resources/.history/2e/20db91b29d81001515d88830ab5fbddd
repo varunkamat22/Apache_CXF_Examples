@@ -1,9 +1,0 @@
-package service;
-
-@WebService(endpointInterface = "demo.hw.server.HelloWorld", serviceName = "HelloWorld")
-public class GreetServiceImpl implements GreetService{
-	
-	public String sayHi(String name){
-		return "WelCome, "+name;
-	}
-}

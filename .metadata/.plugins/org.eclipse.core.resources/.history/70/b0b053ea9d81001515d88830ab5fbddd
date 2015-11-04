@@ -1,8 +1,0 @@
-package service;
-
-public class GreetServiceTest {
-	
-	public static void main(String[] args) {
-		
-	}
-}
