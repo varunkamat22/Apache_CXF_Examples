@@ -4,6 +4,10 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 	http://cxf.apache.org/jaxws http://cxf.apache.org/schemas/jaxws.xsd">
 
-	<jaxws:client id="greetService" serviceClass="service.GreetServiceImpl" address="http://localhost:9002/greetservice" />
+	<import resource="classpath:META-INF/cxf/cxf.xml" />
+	<import resource="classpath:META-INF/cxf/cxf-servlet.xml" />
 
+	<jaxws:endpoint id="greetService" implementor="service.GreetServiceImpl" serviceName="GreetService"
+		address="/greetservice" publish="false"/>
+	<jaxws:client id="tempConvClient" serviceClass="client.TempConvertSoap" address="http://www.w3schools.com/xml/tempconvert.asmx"></jaxws:client>
 </beans>

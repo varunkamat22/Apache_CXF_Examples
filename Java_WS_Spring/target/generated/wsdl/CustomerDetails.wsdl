@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="CustomerInfoService" targetNamespace="http://contractfirst/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://contractfirst/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <wsdl:types>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://contractfirst/" attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://contractfirst/">
+    <xs:element name="CustomerInfo" type="tns:customer"/>
+    <xs:complexType name="customer">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="name" type="xs:string"/>
+            <xs:element minOccurs="0" name="customerID" type="xs:string"/>
+            <xs:element minOccurs="0" name="createdDate" type="xs:dateTime"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="getCustomers" type="tns:getCustomers"/>
+    <xs:complexType name="getCustomers">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="customername" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="getCustomersResponse" type="tns:getCustomersResponse"/>
+    <xs:complexType name="getCustomersResponse">
+        <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:customer"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>
+  </wsdl:types>
+  <wsdl:message name="getCustomers">
+    <wsdl:part name="parameters" element="tns:getCustomers">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getCustomersResponse">
+    <wsdl:part name="parameters" element="tns:getCustomersResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="CustomerInfoService">
+    <wsdl:operation name="getCustomers">
+      <wsdl:input name="getCustomers" message="tns:getCustomers">
+    </wsdl:input>
+      <wsdl:output name="getCustomersResponse" message="tns:getCustomersResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="CustomerInfoServiceSoapBinding" type="tns:CustomerInfoService">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getCustomers">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getCustomers">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getCustomersResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CustomerInfoService">
+    <wsdl:port name="CustomerInfoServicePort" binding="tns:CustomerInfoServiceSoapBinding">
+      <soap:address location="http://localhost:9090/hello"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
