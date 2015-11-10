@@ -9,5 +9,7 @@
 
 	<jaxws:endpoint id="greetService" implementor="service.GreetServiceImpl" serviceName="GreetService"
 		address="/greetservice" publish="false"/>
+	<jaxws:endpoint id="customerService" implementor="contractfirst.CustomerServiceImpl" 
+		address="/customerservice" publish="true"/>
 	<jaxws:client id="tempConvClient" serviceClass="client.TempConvertSoap" address="http://www.w3schools.com/xml/tempconvert.asmx"></jaxws:client>
 </beans>
