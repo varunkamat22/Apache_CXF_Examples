@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:jaxws="http://cxf.apache.org/jaxws" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://cxf.apache.org/jaxws 
+	http://cxf.apache.org/schemas/jaxws.xsd
+	http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd 
+    http://www.springframework.org/schema/mvc 
+    http://www.springframework.org/schema/mvc/spring-mvc-3.1.xsd">
+
+	<import resource="classpath:META-INF/cxf/cxf.xml" />
+	<import resource="classpath:META-INF/cxf/cxf-servlet.xml" />
+
+	<bean id="pwdhandler" class="service.PasswordCallBackHandler" />
+	<bean id="tempConvClient" class="client.TempConvertSoap" />
+
+	<jaxws:endpoint id="greetService" implementor="service.GreetServiceImpl"
+		serviceName="GreetService" address="/greetservice" publish="true">
+		<!-- <jaxws:properties> <entry key="ws-security.callback-handler" value-ref="pwdhandler" 
+			/> </jaxws:properties> -->
+		<jaxws:properties>
+			<entry key="mtom-enabled" value="true" />
+		</jaxws:properties>
+		<jaxws:inInterceptors>
+			<bean class="org.apache.cxf.ws.security.wss4j.WSS4JInInterceptor">
+				<constructor-arg>
+					<map>
+						<entry key="action" value="UsernameToken" />
+						<entry key="passwordType" value="PasswordText" />
+						<!-- <entry key="signaturePropFile" value="..." /> -->
+						<entry key="passwordCallbackRef">
+							<ref bean="pwdhandler" />
+						</entry>
+					</map>
+				</constructor-arg>
+			</bean>
+			<bean class="service.LoggingInterceptor"></bean>
+		</jaxws:inInterceptors>
+		<jaxws:outInterceptors>
+			<bean class="org.apache.cxf.interceptor.LoggingOutInterceptor"></bean>
+		</jaxws:outInterceptors>
+	</jaxws:endpoint>
+	<jaxws:endpoint id="customerService" implementor="contractfirst.CustomerServiceImpl"
+		address="/customerservice" publish="false">
+		<!-- enables this service for WS-addressing -->
+		<jaxws:features>
+			<wsa:addressing xmlns:wsa="http://cxf.apache.org/ws/addressing" />
+		</jaxws:features>
+		<!-- <jaxws:properties> <entry key="ws-security.callback-handler" value="service.PasswordCallBackHandler" 
+			/> </jaxws:properties> -->
+
+	</jaxws:endpoint>
+
+	<!-- Security stuff begins -->
+	<!-- Uncomment only if using WS-SecurityPolicy -->
+
+
+
+	<jaxws:client id="tempConvClient" serviceClass="client.TempConvertSoap"
+		address="http://www.w3schools.com/xml/tempconvert.asmx"></jaxws:client>
+		
+	
+</beans>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:jaxws="http://cxf.apache.org/jaxws" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://cxf.apache.org/jaxws 
+	http://cxf.apache.org/schemas/jaxws.xsd
+	http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd 
+    http://www.springframework.org/schema/mvc 
+    http://www.springframework.org/schema/mvc/spring-mvc-3.1.xsd">
+
+	<import resource="classpath:META-INF/cxf/cxf.xml" />
+	<import resource="classpath:META-INF/cxf/cxf-servlet.xml" />
+
+	<bean id="tempConvClient" class="client.TempConvertSoap" />
+	<bean id="pwdhandler" class="service.PasswordCallBackHandler" />
+	
+	<jaxws:client id="tempConvClient" serviceClass="client.TempConvertSoap"
+		address="http://www.w3schools.com/xml/tempconvert.asmx"></jaxws:client>
+
+	<jaxws:client id="greetClient" serviceClass="service.client.GreetService"
+		address="http://localhost:8080/Java_WS_Spring2/services/greetservice">
+		<jaxws:outInterceptors>
+			<bean class="org.apache.cxf.interceptor.LoggingOutInterceptor"></bean>
+		</jaxws:outInterceptors>
+	</jaxws:client>
+</beans>
